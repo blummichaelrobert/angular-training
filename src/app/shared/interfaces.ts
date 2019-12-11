@@ -12,7 +12,7 @@ export interface ICustomer {
     orders?: IOrder[];
     orderTotal?: number;
     latitude?: number;
-    longitude?:number;
+    longitude?: number;
 }
 
 export interface IState {
@@ -22,7 +22,7 @@ export interface IState {
 
 export interface IOrder {
     productName: string;
-    itemCost: string;
+    itemCost: number;
 }
 
 export interface IOrderItem {
