@@ -24,4 +24,35 @@ export class AuthService {
         this.authChanged.emit(status);
     }
 
+    login(userLogin: IUserLogin): Observable<boolean> {
+        return this.http.post<boolean>(this.authUrl + '/login', userLogin)
+        .pipe(map(loggedIn => {
+            this.isAuthenticatd = loggedIn;
+            this.userAuthChanged(loggedIn);
+            return loggedIn;
+        }),
+        catchError(this.handleError));
+    }
+
+    logout(): Observable<boolean> {
+        return this.http.post<boolean>(this.authUrl + '/logout', null)
+        .pipe(map(loggedOut => {
+            this.isAuthenticatd = !loggedOut;
+            this.userAuthChanged(!loggedOut); // Return loggedin status
+            return loggedOut;
+        }),
+        catchError(this.handleError));
+    }
+
+    private handleError(error: HttpErrorResponse) {
+        console.error('server error:', error);
+        if (error.error instanceof Error) {
+            const errMessage = error.error.message;
+            return Observable.throw(errMessage);
+            // Use the following instead if using lite-server
+            // return Observable.throw(err.text() || 'backend server error');
+        }
+        return Observable.throw(error || 'Server error');
+    }
+
 }
