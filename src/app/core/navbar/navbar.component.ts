@@ -13,11 +13,22 @@ import { LoggerService } from '../services/logger.service';
 })
 
 export class NavbarComponent implements OnInit, OnDestroy {
+
+    isCollapsed: boolean;
+    loginLogoutText = 'Login';
+    sub: Subscription;
+
+    constructor(private router: Router,
+                private authService: AuthService,
+                private growler: GrowlerService,
+                private logger: LoggerService) { }
+
+    ngOnInit(): void {
+    }
+
     ngOnDestroy(): void {
         throw new Error("Method not implemented.");
     }
-    ngOnInit(): void {
-        throw new Error("Method not implemented.");
-    }
+    
 
 }

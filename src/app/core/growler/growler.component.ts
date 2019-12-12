@@ -5,8 +5,8 @@ import { LoggerService } from '../services/logger.service';
 
 @Component({
   selector: 'cm-growler',
-  template: 'growler.component.html',
-  styleUrls: ['growler.component.css']
+  templateUrl: './growler.component.html',
+  styleUrls: ['./growler.component.css']
 })
 export class GrowlerComponent implements OnInit {
 
@@ -17,7 +17,8 @@ export class GrowlerComponent implements OnInit {
   @Input() timeout = 3000;
 
   constructor(private growlerService: GrowlerService,
-    private logger: LoggerService) {
+              private logger: LoggerService
+             ) {
     // growlerService.growl = this.growl.bind(this);
   }
 
