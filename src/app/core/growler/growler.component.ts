@@ -5,14 +5,7 @@ import { LoggerService } from '../services/logger.service';
 
 @Component({
   selector: 'cm-growler',
-  template: `
-    <div [ngClass]="position" class="growler">
-      <div *ngFor="let growl of growls" [ngClass]="{active: growl.enabled}"
-          class="growl alert {{ growl.messageType }}">
-          <span class="growl-message">{{ growl.message }}</span>
-      </div>
-    </div>
-  `,
+  template: 'growler.component.html',
   styleUrls: ['growler.component.css']
 })
 export class GrowlerComponent implements OnInit {

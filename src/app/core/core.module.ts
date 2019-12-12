@@ -29,11 +29,11 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     declarations: [NavbarComponent],
     providers: [SorterService, FilterService, DataService, TrackByService, DialogService, AuthService, EventBusService, {
         provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-multi: true
-},
-{provide: 'Window', useFactory: () => window }
-]
+        useClass: AuthInterceptor,
+        multi: true
+    },
+    {provide: 'Window', useFactory: () => window }
+  ]
 })
 export class CoreModule extends EnsureModuleLoadedOnceGuard { // Ensure that CoreModule is only loaded into AppModule
     // Looks for the module in the parent injector to see if it's already been loaded (only want it loaded once)

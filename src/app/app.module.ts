@@ -3,44 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AboutComponent } from './about/about.component';
-import { CustomerComponent } from './customer/customer.component';
-import { CustomersComponent } from './customers/customers.component';
-import { LoginComponent } from './login/login.component';
-import { OrdersComponent } from './orders/orders.component';
-import { SharedComponent } from './shared/shared.component';
-import { GrowlerComponent } from './core/growler/growler.component';
-import { ModalComponent } from './core/modal/modal.component';
-import { OverlayComponent } from './core/overlay/overlay.component';
-import { CustomerDetailsComponent } from './customer/customer-details/customer-details.component';
-import { CustomerEditComponent } from './customer/customer-edit/customer-edit.component';
-import { CustomerOrdersComponent } from './customer/customer-orders/customer-orders.component';
-import { FilterTextboxComponent } from './shared/filter-textbox/filter-textbox.component';
-import { MapComponent } from './shared/map/map.component';
-import { PaginationComponent } from './shared/pagination/pagination.component';
+
+import { LoginModule } from './login/login.module';
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AboutComponent,
-    CustomerComponent,
-    CustomersComponent,
-    LoginComponent,
-    OrdersComponent,
-    SharedComponent,
-    GrowlerComponent,
-    ModalComponent,
-    OverlayComponent,
-    CustomerDetailsComponent,
-    CustomerEditComponent,
-    CustomerOrdersComponent,
-    FilterTextboxComponent,
-    MapComponent,
-    PaginationComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    LoginModule,          // Eager loaded since we may need to go here right away as browser loads based on route user enters
+    AppRoutingModule,     // Main routes for application
+    CoreModule,           // Singleton objects (services, components that are loaded only once, etc.)
+    SharedModule          // Shared (multi-instance) objects
   ],
   providers: [],
   bootstrap: [AppComponent]

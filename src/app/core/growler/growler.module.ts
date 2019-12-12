@@ -11,7 +11,7 @@ import { EnsureModuleLoadedOnceGuard } from '../ensure-module-loaded-once.guard'
     imports: [CommonModule],
     exports: [GrowlerComponent],
     providers: [GrowlerService],
-    declarations:[GrowlerComponent]
+    declarations: [GrowlerComponent]
 })
 export class GrowlerModule extends EnsureModuleLoadedOnceGuard {
     constructor(@Optional() @SkipSelf() parentModule: GrowlerModule) {

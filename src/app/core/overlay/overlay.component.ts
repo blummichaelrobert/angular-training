@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-overlay',
+  selector: 'cm-overlay',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.css']
 })
