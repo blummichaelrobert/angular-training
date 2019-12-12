@@ -8,7 +8,7 @@ import { ModalModule } from './modal/modal.module';
 import { OverlayModule } from './overlay/overlay.module';
 
 import { DataService } from './services/data.service';
-import { NavBarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { FilterService } from './services/filter.service';
 import { SorterService } from './services/sorter.service';
 import { TrackByService } from './services/trackby.service';
@@ -25,8 +25,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 // @NgModule can also add service providers to the application dependency injectors.
 @NgModule({
     imports: [CommonModule, RouterModule, HttpClientModule, GrowlerModule, ModalModule, OverlayModule],
-    exports: [GrowlerModule, RouterModule, HttpClientModule, ModalModule, OverlayModule, NavBarComponent],
-    declarations: [NavBarComponent],
+    exports: [GrowlerModule, RouterModule, HttpClientModule, ModalModule, OverlayModule, NavbarComponent],
+    declarations: [NavbarComponent],
     providers: [SorterService, FilterService, DataService, TrackByService, DialogService, AuthService, EventBusService, {
         provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
