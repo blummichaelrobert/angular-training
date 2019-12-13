@@ -1,3 +1,6 @@
-<p>
-  overlay works!
-</p>
+<div class="overlay" [class.active]="enabled">
+  <div class="overlay-background"></div>
+  <div class="overlay-content">
+    <ng-content></ng-content>
+  </div>
+</div>
