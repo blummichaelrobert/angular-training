@@ -1,5 +1,7 @@
 import { AbstractControl } from '@angular/forms';
 
+// tslint:disable: max-line-length
+// tslint:disable: object-literal-key-quotes
 export class ValidationService {
 
     static getValidatorErrorMessage(code: string) {
@@ -36,7 +38,6 @@ export class ValidationService {
         // {6,100}      - Assert password is between 6 and 100 characters
         // (?=.*[0-9])       - Assert a string has at least one number
         // (?!.*\s)          - Spaces are not allowed
-        // tslint:disable-next-line: max-line-length
         if (control.value.match(/^(?=.*\d)(?=.*[a-zA-Z!@#$%^&*])(?!.*\s).{6,100}$/)) {
             return null;
         } else {

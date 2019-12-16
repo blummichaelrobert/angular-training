@@ -7,7 +7,7 @@ import { map, catchError } from 'rxjs/operators';
 import { ICustomer, IOrder, IState, IPagedResults, IApiResponse } from '../../shared/interfaces';
 
 @Injectable()
-export class DataService { 
+export class DataService {
 
     // Can use /api/customers and /api/orders below when running locally
     // Full domain/port is included for Docker example or if it were to run in the cloud
@@ -36,6 +36,15 @@ export class DataService {
         .pipe(map(customers => {
             this.calculateCustomersOrderTotal(customers);
             return customers;
+        }),
+        catchError(this.handleError));
+    }
+
+    getCustomer(id: number): Observable<ICustomer> {
+        return this.http.get<ICustomer>(this.customerBaseUrl + '.' + id)
+        .pipe(map(customer => {
+            this.calculateCustomersOrderTotal([customer]);
+            return customer;
         }),
         catchError(this.handleError));
     }

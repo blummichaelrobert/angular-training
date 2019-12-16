@@ -13,7 +13,24 @@ export class OverlayRequestResponseInterceptor implements HttpInterceptor {
 
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        throw new Error("Method not implemented.");
+        const randomTime = this.getRandomIntInclusive(0, 1500);
+        const started = Date.now();
+
+        this.eventBus.emit(new EmitEvent(Events.httpRequest));
+        return next
+        .handle(req)
+        .pipe(delay(randomTime), // Simulate random Http call delays
+        tap(event => {
+            if (event instanceof HttpResponse) {
+                const elasped = Date.now() - started;
+                this.eventBus.emit(new EmitEvent(Events.httpResponse));
+            }
+        }),
+        catchError(err => {
+            this.eventBus.emit(new EmitEvent(Events.httpResponse));
+            return of(null);
+        })
+        );
     }
 
     getRandomIntInclusive(min: number, max: number) {
