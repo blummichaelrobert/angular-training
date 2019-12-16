@@ -1,4 +1,3 @@
-  
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -31,7 +30,7 @@ export class CustomerEditComponent implements OnInit {
   states: IState[];
   errorMessage: string;
   deleteMessageEnabled: boolean;
-  operationText ='Insert';
+  operationText = 'Insert';
   @ViewChild('customerForm', { static: true }) customerForm: NgForm;
 
   constructor(private router: Router,
