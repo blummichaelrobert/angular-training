@@ -7,11 +7,17 @@ import { LoggerService } from '../../core/services/logger.service';
 
 @Injectable()
 export class CanDeactivateGuard implements CanDeactivate<CustomerEditComponent> {
+
+  constructor(private logger: LoggerService) { }
     canDeactivate(
         component: CustomerEditComponent,
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
       ): Observable<boolean> | Promise<boolean> | boolean {
-        throw new Error("Method not implemented.");
+
+        this.logger.log(`CustomerId: ${route.parent.params['id']} URL: ${state.url}`);
+
+        // Check with component to see if we're able to deactivate
+        return component.canDeactivate();
     }
 }

@@ -6,7 +6,17 @@ import { AuthService } from '../../core/services/auth.service';
 
 @Injectable()
 export class CanActivateGuard implements CanActivate {
+
+    constructor(private authService: AuthService, private router: Router) { }
+
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-        throw new Error("Method not implemented.");
+        if (this.authService.isAuthenticatd) {
+            return true;
+        }
+
+        // Track URL user is trying to go to so we can send them there after logging in.
+        this.authService.redirectUrl = state.url;
+        this.router.navigate(['./login']);
+        return false;
     }
 }
