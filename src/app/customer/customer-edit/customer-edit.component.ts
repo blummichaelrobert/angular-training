@@ -9,7 +9,7 @@ import { GrowlerService, GrowlerMessageType } from '../../core/growler/growler.s
 import { LoggerService } from '../../core/services/logger.service';
 
 @Component({
-  selector: 'app-customer-edit',
+  selector: 'cm-customer-edit',
   templateUrl: './customer-edit.component.html',
   styleUrls: ['./customer-edit.component.css']
 })
