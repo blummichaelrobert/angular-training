@@ -1,13 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
+
+import { ICustomer } from '../../shared/interfaces';
+import { TrackByService } from '../../core/services/trackby.service';
 
 @Component({
   selector: 'cm-customers-card',
   templateUrl: './customers-card.component.html',
-  styleUrls: ['./customers-card.component.css']
+  styleUrls: ['./customers-card.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CustomersCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() customers: ICustomer[] = [];
+
+  constructor(public trackByService: TrackByService) { }
 
   ngOnInit() {
   }
