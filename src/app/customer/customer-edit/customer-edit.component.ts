@@ -31,7 +31,7 @@ export class CustomerEditComponent implements OnInit {
   errorMessage: string;
   deleteMessageEnabled: boolean;
   operationText = 'Insert';
-  @ViewChild('customerForm', { static: true }) customerForm: NgForm;
+  @ViewChild('customerForm', { read: true }) customerForm: NgForm;
 
   constructor(private router: Router,
               private route: ActivatedRoute, 
