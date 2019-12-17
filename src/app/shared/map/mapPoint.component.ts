@@ -5,7 +5,15 @@ import { Component, OnInit, Input } from '@angular/core';
   template: ``
 })
 export class MapPointComponent implements OnInit {
-    ngOnInit(): void {
-        throw new Error("Method not implemented.");
-    }
+
+  @Input() longitude: number;
+  @Input() latitude: number;
+  @Input() markerText: string;
+
+  constructor() { }
+
+  ngOnInit() {
+
+  }
+
 }
