@@ -4,6 +4,7 @@ import { DataService } from '../core/services/data.service';
 import { ICustomer, IPagedResults } from '../shared/interfaces';
 import { FilterService } from '../core/services/filter.service';
 import { LoggerService } from '../core/services/logger.service';
+import { MockDataService } from '../shared/mocks';
 
 @Component({
   selector: 'cm-customers',
@@ -23,7 +24,8 @@ export class CustomersComponent implements OnInit {
 
   constructor(private dataService: DataService,
               private filterService: FilterService,
-              private logger: LoggerService) { }
+              private logger: LoggerService,
+              private mockDataService: MockDataService) { }
 
   ngOnInit() {
     this.title = 'Customers';
@@ -42,7 +44,14 @@ export class CustomersComponent implements OnInit {
   }
 
   getCustomersPage(page: number) {
-    this.dataService.getCustomersPage((page - 1) * this.pageSize, this.pageSize)
+    // this.dataService.getCustomersPage((page - 1) * this.pageSize, this.pageSize)
+    // .subscribe((response: IPagedResults<ICustomer[]>) => {
+    //   this.customers = this.filteredCustomers = response.results;
+    //   this.totalRecords = response.totalRecords;
+    // },
+    // (err: any) => this.logger.log(err),
+    // () => this.logger.log('getCustomersPage() retrieved customers for page: ' + page));
+    this.mockDataService.getCustomersPage((page - 1) * this.pageSize, this.pageSize)
     .subscribe((response: IPagedResults<ICustomer[]>) => {
       this.customers = this.filteredCustomers = response.results;
       this.totalRecords = response.totalRecords;

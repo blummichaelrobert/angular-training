@@ -8,7 +8,7 @@ import { PaginationModule } from './pagination/pagination.module';
 
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { TrimPipe } from './pipes/trim.pipe';
-import { SortByDirective } from './directives/sortby.directive'
+import { SortByDirective } from './directives/sortby.directive';
 
 @NgModule({
     imports: [CommonModule, MapModule, FilterTextboxModule, PaginationModule ],

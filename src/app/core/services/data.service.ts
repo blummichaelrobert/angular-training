@@ -13,8 +13,8 @@ export class DataService {
     // Full domain/port is included for Docker example or if it were to run in the cloud
     port = (this.window.location.port) ? ':' + this.window.location.port : '';
     baseUrl = `${this.window.location.protocol}//${this.window.location.hostname}${this.port}`;
-    customerBaseUrl = this.baseUrl + 'api/customers';
-    orderBaseUrl = this.baseUrl + 'api/orders';
+    customerBaseUrl = this.baseUrl + '/api/customers';
+    orderBaseUrl = this.baseUrl + '/api/orders';
     orders: IOrder[];
     states: IState[];
 
@@ -23,6 +23,7 @@ export class DataService {
     getCustomersPage(page: number, pageSize: number): Observable<IPagedResults<ICustomer[]>> {
         return this.http.get<ICustomer[]>(`${this.customerBaseUrl}/page/${page}/${pageSize}`, { observe: 'response' })
         .pipe(map(res => {
+            console.log(res);
             const totalRecords = +res.headers.get('X-InlineCount');
             const customers = res.body as ICustomer[];
             this.calculateCustomersOrderTotal(customers);

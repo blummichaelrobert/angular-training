@@ -17,7 +17,7 @@ export class OrdersComponent implements OnInit {
   constructor(private dataService: DataService, private trackByService: TrackByService) { }
 
   ngOnInit() {
-    this.getCustomersPage(1);
+    // this.getCustomersPage(1);
   }
 
   pageChanged(page: number){
