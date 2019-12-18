@@ -31,7 +31,9 @@ export class CustomerEditComponent implements OnInit {
   errorMessage: string;
   deleteMessageEnabled: boolean;
   operationText = 'Insert';
-  @ViewChild('customerForm', { read: true }) customerForm: NgForm;
+
+  // Use @ViewChild to inject a reference to a component
+  @ViewChild('customerForm') customerForm: NgForm;
 
   constructor(private router: Router,
               private route: ActivatedRoute, 

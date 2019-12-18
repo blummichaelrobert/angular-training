@@ -18,7 +18,6 @@ export class MockDataService {
     }
 
     getCustomersPage(page: number, pageSize: number): Observable<IPagedResults<ICustomer[]>> {
-        console.log('mock data service called');
         const topVal = pageSize;
         const skipVal = page;
         const skip = (isNaN(skipVal)) ? 0 : +skipVal;

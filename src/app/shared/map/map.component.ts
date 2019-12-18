@@ -43,7 +43,7 @@ export class MapComponent implements OnInit, AfterContentInit {
     this.init();
   }
 
-  @ViewChild('mapContainer', { read: true }) mapDiv: ElementRef;
+  @ViewChild('mapContainer') mapDiv: ElementRef;
   @ContentChildren(MapPointComponent) mapPoints: QueryList<MapPointComponent>;
 
   constructor() { }
@@ -54,6 +54,7 @@ export class MapComponent implements OnInit, AfterContentInit {
         this.mapHeight = this.height + 'px';
         this.mapWidth = this.width + 'px';
       } else {
+        console.log(this.mapDiv);
         const hw = this.getWindowHeightWidth(this.mapDiv.nativeElement.ownerDocument);
         this.mapHeight = hw.height / 2 + 'px';
         this.mapWidth = hw.width + 'px';
@@ -80,6 +81,7 @@ export class MapComponent implements OnInit, AfterContentInit {
   }
 
   private getWindowHeightWidth(document: HTMLDocument) {
+    console.log('getWindowHeigt called');
     let width = window.innerWidth
       || document.documentElement.clientWidth
       || document.body.clientWidth;
