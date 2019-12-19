@@ -3,7 +3,8 @@ import { ActivatedRouteSnapshot, ActivatedRoute, UrlSegment, Params, Route, Para
 
 import { Observable, of } from 'rxjs';
 
-import { ICustomer, IPagedResults } from './interfaces';
+import { ICustomer, IPagedResults, IState } from './interfaces';
+import { shiftInitState } from '@angular/core/src/view';
 
 export class MockDataService {
 
@@ -36,6 +37,18 @@ export class MockDataService {
             totalRecords: customers.length,
             results: customers.slice(skip, top)
         });
+    }
+
+    getStates(): Observable<IState[]> {
+        // const stateArray: IState[] = [];
+
+        // for (let customer of customers) {
+        //     const state: IState = customer['state'];
+        //     stateArray.push(state);
+        // }
+        // console.log(stateArray);
+        // return of(stateArray);
+        return of(states);
     }
 }
 
@@ -74,7 +87,7 @@ export function getActivatedRouteWithParent(params: any[]) {
     return route;
 }
 
-export const customers = [
+export const customers: ICustomer[] = [
     {
         id: 1,
         firstName: 'ted',
@@ -435,4 +448,62 @@ export const customers = [
         latitude: -22.919369,
         longitude: -43.181836
     }
+];
+
+export const states: IState[] = [
+    {abbreviation: 'AL', name: 'Alabama'},
+    {abbreviation: 'AK', name: 'Alaska'},
+    {abbreviation: 'AS', name: 'American Samoa'},
+    {abbreviation: 'AZ', name: 'Arizona'},
+    {abbreviation: 'AR', name: 'Arkansas'},
+    {abbreviation: 'CA', name: 'California'},
+    {abbreviation: 'CO', name: 'Colorado'},
+    {abbreviation: 'CT', name: 'Connecticut'},
+    {abbreviation: 'DE', name: 'Delaware'},
+    {abbreviation: 'FL', name: 'Florida'},
+    {abbreviation: 'GA', name: 'Georgia'},
+    {abbreviation: 'GU', name: 'Guam'},
+    {abbreviation: 'HI', name: 'Hawaii'},
+    {abbreviation: 'ID', name: 'Idaho'},
+    {abbreviation: 'IL', name: 'Illinois'},
+    {abbreviation: 'IN', name: 'Indiana'},
+    {abbreviation: 'IA', name: 'Iowa'},
+    {abbreviation: 'KS', name: 'Kansas'},
+    {abbreviation: 'KY', name: 'Kentucky'},
+    {abbreviation: 'LA', name: 'Louisiana'},
+    {abbreviation: 'ME', name: 'Maine'},
+    {abbreviation: 'MD', name: 'Maryland'},
+    {abbreviation: 'MA', name: 'Massachusetts'},
+    {abbreviation: 'MI', name: 'Michigan'},
+    {abbreviation: 'MN', name: 'Minnesota'},
+    {abbreviation: 'MS', name: 'Mississippi'},
+    {abbreviation: 'MO', name: 'Missouri'},
+    {abbreviation: 'MT', name: 'Montana'},
+    {abbreviation: 'NE', name: 'Nebraska'},
+    {abbreviation: 'NV', name: 'Nevada'},
+    {abbreviation: 'NH', name: 'New Hampshire'},
+    {abbreviation: 'NJ', name: 'New Jersey'},
+    {abbreviation: 'NM', name: 'New Mexico'},
+    {abbreviation: 'NY', name: 'New York'},
+    {abbreviation: 'NC', name: 'North Carolina'},
+    {abbreviation: 'ND', name: 'North Dakota'},
+    {abbreviation: 'MP', name: 'Northern Marina Islands'},
+    {abbreviation: 'HO', name: 'Ohio'},
+    {abbreviation: 'OK', name: 'Oklahoma'},
+    {abbreviation: 'OR', name: 'Oregon'},
+    {abbreviation: 'PA', name: 'Pennsylvania'},
+    {abbreviation: 'PR', name: 'Puerto Rico'},
+    {abbreviation: 'RI', name: 'Rhode Island'},
+    {abbreviation: 'SC', name: 'South Carolina'},
+    {abbreviation: 'SD', name: 'South Dakota'},
+    {abbreviation: 'TN', name: 'Tennessee'},
+    {abbreviation: 'TX', name: 'Texas'},
+    {abbreviation: 'VI', name: 'US Virgin Islands'},
+    {abbreviation: 'UT', name: 'Utah'},
+    {abbreviation: 'VT', name: 'Vermont'},
+    {abbreviation: 'VA', name: 'Virginia'},
+    {abbreviation: 'WA', name: 'Washington'},
+    {abbreviation: 'WV', name: 'West Virginia'},
+    {abbreviation: 'WI', name: 'Wisconsin'},
+    {abbreviation: 'WY', name: 'Wyoming'}
 ];

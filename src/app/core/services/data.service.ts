@@ -71,7 +71,8 @@ export class DataService {
     }
 
     getStates(): Observable<IState[]> {
-        return this.http.get<IState[]>('/api/states').pipe(catchError(this.handleError));
+        return this.mockDataService.getStates();
+        //return this.http.get<IState[]>('/api/states').pipe(catchError(this.handleError));
     }
 
     calculateCustomersOrderTotal(customers: ICustomer[]) {
