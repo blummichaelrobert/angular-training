@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 import { ICustomer, IOrder, IState, IPagedResults, IApiResponse } from '../../shared/interfaces';
+import { MockDataService } from 'src/app/shared/mocks';
 
 @Injectable()
 export class DataService {
@@ -18,36 +19,41 @@ export class DataService {
     orders: IOrder[];
     states: IState[];
 
-    constructor(private http: HttpClient, @Inject('Window') private window: Window) { }
+    constructor(private http: HttpClient,
+                private mockDataService: MockDataService,
+                @Inject('Window') private window: Window) { }
 
     getCustomersPage(page: number, pageSize: number): Observable<IPagedResults<ICustomer[]>> {
-        return this.http.get<ICustomer[]>(`${this.customerBaseUrl}/page/${page}/${pageSize}`, { observe: 'response' })
-        .pipe(map(res => {
-            console.log(res);
-            const totalRecords = +res.headers.get('X-InlineCount');
-            const customers = res.body as ICustomer[];
-            this.calculateCustomersOrderTotal(customers);
-            return { results: customers, totalRecords: totalRecords };
-        }),
-        catchError(this.handleError));
+        return this.mockDataService.getCustomersPage(page, pageSize);
+        // return this.http.get<ICustomer[]>(`${this.customerBaseUrl}/page/${page}/${pageSize}`, { observe: 'response' })
+        // .pipe(map(res => {
+        //     console.log(res);
+        //     const totalRecords = +res.headers.get('X-InlineCount');
+        //     const customers = res.body as ICustomer[];
+        //     this.calculateCustomersOrderTotal(customers);
+        //     return { results: customers, totalRecords: totalRecords };
+        // }),
+        // catchError(this.handleError));
     }
 
     getCustomers(): Observable<ICustomer[]> {
-        return this.http.get<ICustomer[]>(this.customerBaseUrl)
-        .pipe(map(customers => {
-            this.calculateCustomersOrderTotal(customers);
-            return customers;
-        }),
-        catchError(this.handleError));
+        return this.mockDataService.getCustomers();
+        // return this.http.get<ICustomer[]>(this.customerBaseUrl)
+        // .pipe(map(customers => {
+        //     this.calculateCustomersOrderTotal(customers);
+        //     return customers;
+        // }),
+        // catchError(this.handleError));
     }
 
     getCustomer(id: number): Observable<ICustomer> {
-        return this.http.get<ICustomer>(this.customerBaseUrl + '.' + id)
-        .pipe(map(customer => {
-            this.calculateCustomersOrderTotal([customer]);
-            return customer;
-        }),
-        catchError(this.handleError));
+        return this.mockDataService.getCustomer(id);
+        // return this.http.get<ICustomer>(this.customerBaseUrl + '/' + id)
+        // .pipe(map(customer => {
+        //     this.calculateCustomersOrderTotal([customer]);
+        //     return customer;
+        // }),
+        // catchError(this.handleError));
     }
 
     insertCustomer(customer: ICustomer): Observable<ICustomer> {

@@ -17,6 +17,10 @@ export class MockDataService {
         }
     }
 
+    getCustomers(): Observable<ICustomer[]> {
+        return of(customers);
+    }
+
     getCustomersPage(page: number, pageSize: number): Observable<IPagedResults<ICustomer[]>> {
         const topVal = pageSize;
         const skipVal = page;
@@ -32,10 +36,6 @@ export class MockDataService {
             totalRecords: customers.length,
             results: customers.slice(skip, top)
         });
-    }
-
-    getCustomers(): Observable<ICustomer[]> {
-        return of(customers);
     }
 }
 

@@ -4,9 +4,10 @@ import { RouterModule, Routes, PreloadAllModules, NoPreloading } from '@angular/
 import { PreloadModulesStrategy } from './core/strategies/preload-modules.strategy';
 
 const app_routes: Routes = [
-  { path: 'customers/:id', data: { preload: true }, loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule) },
+   { path: 'customers/:id', data: { preload: true }, loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule) },
   // { path: 'customers/:id', data: { preload: true }, loadChildren: 'app/customer/customer.module#CustomerModule' },
-  { path: 'customers', loadChildren: './customers/customers.module#CustomersModule' },
+  { path: 'customers', data: { preload: true }, loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule) },
+  // { path: 'customers', loadChildren: './customers/customers.module#CustomersModule' },
   { path: 'orders', data: { preload: true }, loadChildren: './orders/orders.module#OrdersModule' },
   { path: 'about', loadChildren: './about/about.module#AboutModule' },
 ];

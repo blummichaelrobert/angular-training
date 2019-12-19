@@ -1,0 +1,14 @@
+The Angular JumpStart project provides a complete application that demonstrates many key features provided by the Angular framework. Some of the project features include:
+TypeScript classes and modules
+Modules are loaded with System.js
+Defining routes including child routes and lazy loaded routes
+Using Custom Components including custom input and output properties
+Using Custom Directives
+Using Custom Pipes
+Defining Properties and Using Events in Components/Directives
+Using the Http object for Ajax calls along with RxJS observables
+Working with Utility and Service classes (such as for sorting and Ajax calls)
+Using Angular databinding Syntax [], () and [()]
+Using template-driven and reactive forms functionality for capturing and validating data
+Optional: Webpack functionality is available for module loading and more (see the readme for details)
+Optional: Ahead-Of-Time (AOT) support is available (see the readme for details)

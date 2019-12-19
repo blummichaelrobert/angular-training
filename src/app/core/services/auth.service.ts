@@ -12,7 +12,7 @@ export class AuthService {
     port = (this.window.location.port) ? ':' + this.window.location.port : '';
     baseUrl = `${this.window.location.protocol}//${this.window.location.hostname}${this.port}`;
     authUrl = this.baseUrl + '/api/auth';
-    isAuthenticatd = false;
+    isAuthenticatd = true;
     redirectUrl: string;
 
     @Output() authChanged: EventEmitter<boolean> = new EventEmitter<boolean>();

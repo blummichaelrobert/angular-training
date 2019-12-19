@@ -8,6 +8,8 @@ import { LoginModule } from './login/login.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
+import { MockDataService } from './shared/mocks';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -19,7 +21,7 @@ import { SharedModule } from './shared/shared.module';
     CoreModule,           // Singleton objects (services, components that are loaded only once, etc.)
     SharedModule          // Shared (multi-instance) objects
   ],
-  providers: [],
+  providers: [MockDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
