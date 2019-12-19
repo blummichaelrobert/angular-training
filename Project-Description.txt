@@ -12,3 +12,6 @@ Using Angular databinding Syntax [], () and [()]
 Using template-driven and reactive forms functionality for capturing and validating data
 Optional: Webpack functionality is available for module loading and more (see the readme for details)
 Optional: Ahead-Of-Time (AOT) support is available (see the readme for details)
+
+MONGO DB Connection String: 
+mongodb+srv://mrb_admin:<password>@mrbmdb-sandbox-gj1zy.azure.mongodb.net/test?retryWrites=true&w=majority

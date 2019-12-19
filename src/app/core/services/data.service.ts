@@ -1,7 +1,7 @@
 import { Injectable, Inject, inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 import { ICustomer, IOrder, IState, IPagedResults, IApiResponse } from '../../shared/interfaces';
@@ -61,8 +61,10 @@ export class DataService {
     }
 
     updateCustomer(customer: ICustomer): Observable<boolean> {
-        return this.http.put<IApiResponse>(this.customerBaseUrl + '/' + customer.id, customer)
-        .pipe(map(res => res.status), catchError(this.handleError));
+        alert('customer updated!');
+        return of(true);
+        // return this.http.put<IApiResponse>(this.customerBaseUrl + '/' + customer.id, customer)
+        // .pipe(map(res => res.status), catchError(this.handleError));
     }
 
     deleteCustomer(id: number): Observable<boolean> {
