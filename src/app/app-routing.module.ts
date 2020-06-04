@@ -10,6 +10,8 @@ const app_routes: Routes = [
   // { path: 'customers', loadChildren: './customers/customers.module#CustomersModule' },
   { path: 'orders', data: { preload: true }, loadChildren: './orders/orders.module#OrdersModule' },
   { path: 'about', loadChildren: './about/about.module#AboutModule' },
+  { path: 'alphabet', loadChildren: './alphabet-invasion/alphabet-invasion.module#AlphabetInvasionModule' },
+  {path: 'sandbox', loadChildren: './sandbox/sandbox.module#SandboxModule'}
 ];
 
 @NgModule({
