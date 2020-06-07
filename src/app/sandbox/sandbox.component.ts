@@ -1,26 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { MusicKeyService } from '../core/services/music-key.service';
 
 @Component({
     selector: 'sandbox',
     templateUrl: './sandbox.component.html',
     styleUrls: ['./sandbox.component.css'],
-    providers:[MusicKeyService]
+    providers:[]
 })
 
 export class SandboxComponent {
 
     displayString = '';
-    chromaticScaleSliderValue = '1';
-    musicKey: MusicKey;
-    renderingMajorKey = true;
 
-    constructor(private musicKeyService: MusicKeyService) { }
+    constructor() { }
 
     ngOnInit() {
         this.runDeveloperCalculator();
-
-        this.musicKey = this.musicKeyService.getMusicKey(this.chromaticScaleSliderValue);
     }
 
     runDeveloperCalculator() {
@@ -43,17 +37,7 @@ export class SandboxComponent {
         const totalSalaries = calculator.calculateSalaries();
 
         this.displayString = `The total of all dev salaries are: ${totalSalaries}`;
-    }
-
-    getchromaticScaleValue(event: MouseEvent) {
-        this.chromaticScaleSliderValue = event['target']['value'];
-        this.musicKey = this.musicKeyService.getMusicKey(this.chromaticScaleSliderValue);
-        console.log(this.musicKey);
-    }
-
-    getminorMajorValue() {
-        this.renderingMajorKey = !this.renderingMajorKey;     
-    }
+    }   
 }
 
 export abstract class BaseSalaryCalculator {
@@ -115,19 +99,4 @@ export class DeveloperReport {
     Level: string;
     WorkingHours: number;
     HourlyRate: number;
-}
-
-export class MusicKey {
-    Root: string;
-    minor2nd: string;
-    Major2nd: string;
-    minor3rd: string;
-    Major3rd: string;
-    Perfect4th: string;
-    diminished5th: string;
-    Perfect5th: string;
-    minor6th: string;
-    Major6th: string;
-    minor7th: string;
-    Major7th: string;
 }

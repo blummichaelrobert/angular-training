@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MusicKey } from '../../sandbox/sandbox.component';
-
+import { MusicKey } from '../../music/music.models';
 
 @Injectable()
 export class MusicKeyService {
@@ -20,12 +19,9 @@ export class MusicKeyService {
         ['12', ['G#', 'A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G']]
     ]);
 
-    musicKey: MusicKey; 
+    musicKey: MusicKey;
 
-    getMusicKey(key: string): MusicKey {
-
-        const rawMusicKey: string[] = this.musicMap.get(key);
-
+    createMusicKey(rawMusicKey: string[]) {
         this.musicKey = {
             Root: rawMusicKey[0],
             minor2nd: rawMusicKey[1],
@@ -40,6 +36,13 @@ export class MusicKeyService {
             minor7th: rawMusicKey[10],
             Major7th: rawMusicKey[11]
         };
+    }
+
+    getMusicKey(key: string): MusicKey {
+
+        const rawMusicKey: string[] = this.musicMap.get(key);
+
+        this.createMusicKey(rawMusicKey);
 
         return this.musicKey;
     }
