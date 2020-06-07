@@ -19,6 +19,21 @@ export class MusicKeyService {
         ['12', ['G#', 'A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G']]
     ]);
 
+    colorMap: Map<string, string> = new Map([
+        ['A', '#ff0000'],
+        ['A#', '#ff3300'],
+        ['B', '#ff6500'],
+        ['C', '#f9ed03'],
+        ['C#', '#b6f903'],
+        ['D', '#059c0e'],
+        ['D#', '#04d6a2'],
+        ['E', '#00e6c2'],
+        ['F', '#0000ff'],
+        ['F#', '#5a01ff'],
+        ['G', '#ab00ff'],
+        ['G#', '#e6008e']
+    ]);
+
     musicKey: MusicKey;
 
     createMusicKey(rawMusicKey: string[]) {
@@ -45,5 +60,9 @@ export class MusicKeyService {
         this.createMusicKey(rawMusicKey);
 
         return this.musicKey;
+    }
+
+    getColor(key: string): string {
+        return this.colorMap.get(key);
     }
 }

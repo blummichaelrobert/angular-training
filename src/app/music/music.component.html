@@ -1,57 +1,72 @@
-<div class="row">
-    <div class="col-xs-1">
+<div class="row"
+     *ngIf="showChromaticScale"
+     style="margin-top: 3rem;">
+    <div class="col-xs-1"
+         [ngStyle]="{'background-color':backgroundColors.Root}">
         <h4>Root</h4>
         <p>{{musicKey.Root}}</p>
     </div>
-    <div class="col-xs-1">
+    <div class="col-xs-1"
+         [ngStyle]="{'background-color':backgroundColors.minor2nd}">
         <h4>m2</h4>
         <p>{{musicKey.minor2nd}}</p>
     </div>
-    <div class="col-xs-1">
+    <div class="col-xs-1"
+         [ngStyle]="{'background-color':backgroundColors.Major2nd}">
         <h4>M2</h4>
         <p>{{musicKey.Major2nd}}</p>
     </div>
-    <div class="col-xs-1">
+    <div class="col-xs-1"
+         [ngStyle]="{'background-color':backgroundColors.minor3rd}">
         <h4>m3</h4>
         <p>{{musicKey.minor3rd}}</p>
     </div>
-    <div class="col-xs-1">
+    <div class="col-xs-1"
+          [ngStyle]="{'background-color':backgroundColors.Major3rd}">
         <h4>M3</h4>
         <p>{{musicKey.Major3rd}}</p>
     </div>
-    <div class="col-xs-1">
+    <div class="col-xs-1"
+         [ngStyle]="{'background-color':backgroundColors.Perfect4th}">
         <h4>P4</h4>
         <p>{{musicKey.Perfect4th}}</p>
     </div>
-    <div class="col-xs-1">
+    <div class="col-xs-1"
+          [ngStyle]="{'background-color':backgroundColors.diminished5th}">
         <h4>d5</h4>
         <p>{{musicKey.diminished5th}}</p>
     </div>
-    <div class="col-xs-1">
+    <div class="col-xs-1"
+          [ngStyle]="{'background-color':backgroundColors.Perfect5th}">
         <h4>P5</h4>
         <p>{{musicKey.Perfect5th}}</p>
     </div>
-    <div class="col-xs-1">
+    <div class="col-xs-1"
+         [ngStyle]="{'background-color':backgroundColors.minor6th}">
         <h4>m6</h4>
         <p>{{musicKey.minor6th}}</p>
     </div>
-    <div class="col-xs-1">
+    <div class="col-xs-1"
+          [ngStyle]="{'background-color':backgroundColors.Major6th}">
         <h4>M6</h4>
         <p>{{musicKey.Major6th}}</p>
     </div>
-    <div class="col-xs-1">
+    <div class="col-xs-1"
+          [ngStyle]="{'background-color':backgroundColors.minor7th}">
         <h4>m7</h4>
         <p>{{musicKey.minor7th}}</p>
     </div>
-    <div class="col-xs-1">
+    <div class="col-xs-1"
+          [ngStyle]="{'background-color':backgroundColors.Major7th}">
         <h4>M7</h4>
         <p>{{musicKey.Major7th}}</p>
     </div>
 </div>
 
-
 <div class="row" style="margin-top: 3rem;">
-    <div class="col-xs-1">
+
+    <div class="col-xs-1"
+         [ngStyle]="{'background-color':backgroundColors.Root}">
         <div *ngIf="true">
             <h4 *ngIf="!renderingMajorKey">i</h4>
             <h4 *ngIf="renderingMajorKey">I</h4>
@@ -61,26 +76,36 @@
 
     <div class="col-xs-1"></div>
 
-    <div class="col-xs-1">
-        <div *ngIf="true">
-            <h4 *ngIf="!renderingMajorKey">d</h4>
-            <h4 *ngIf="renderingMajorKey">ii</h4>
-            <p>{{musicKey.Major2nd}}</p>
-        </div>
+    <div class="col-xs-1"
+         [ngStyle]="{'background-color':backgroundColors.Major2nd}">
+        <h4 *ngIf="!renderingMajorKey">d</h4>
+        <h4 *ngIf="renderingMajorKey">ii</h4>
+        <p>{{musicKey.Major2nd}}</p>
     </div>
-    <div class="col-xs-1">
-        <div *ngIf="!renderingMajorKey">
-            <h4>III</h4>
-            <p>{{musicKey.minor3rd}}</p>
-        </div>
+
+    <div class="col-xs-1"
+         *ngIf="renderingMajorKey">
     </div>
-    <div class="col-xs-1">
-        <div *ngIf="renderingMajorKey">
-            <h4>iii</h4>
-            <p>{{musicKey.Major3rd}}</p>
-        </div>
+    <div class="col-xs-1"
+         *ngIf="!renderingMajorKey"
+         [ngStyle]="{'background-color':backgroundColors.minor3rd}">
+        <h4>III</h4>
+        <p>{{musicKey.minor3rd}}</p>
     </div>
-    <div class="col-xs-1">
+
+    <div class="col-xs-1"
+         *ngIf="renderingMajorKey"
+         [ngStyle]="{'background-color':backgroundColors.Major3rd}">
+        <h4>iii</h4>
+        <p>{{musicKey.Major3rd}}</p>
+    </div>
+
+    <div class="col-xs-1"
+         *ngIf="!renderingMajorKey">
+    </div>
+
+    <div class="col-xs-1"
+         [ngStyle]="{'background-color':backgroundColors.Perfect4th}">
         <div *ngIf="true">
             <h4 *ngIf="!renderingMajorKey">iv</h4>
             <h4 *ngIf="renderingMajorKey">IV</h4>
@@ -90,39 +115,55 @@
 
     <div class="col-xs-1"> </div>
 
-    <div class="col-xs-1">
+    <div class="col-xs-1"
+         [ngStyle]="{'background-color':backgroundColors.Perfect5th}">
         <div *ngIf="true">
             <h4 *ngIf="!renderingMajorKey">v</h4>
             <h4 *ngIf="renderingMajorKey">V</h4>
             <p>{{musicKey.Perfect5th}}</p>
         </div>
     </div>
-    <div class="col-xs-1" title="Natural Minor">
-        <div *ngIf="!renderingMajorKey">
-            <h4>VI</h4>
-            <p>{{musicKey.minor6th}}</p>
-        </div>
+
+    <div class="col-xs-1"
+         *ngIf="renderingMajorKey">
     </div>
-    <div class="col-xs-1">
-        <div *ngIf="renderingMajorKey">
-            <h4>vi</h4>
-            <p>{{musicKey.Major6th}}</p>
-        </div>
+    <div class="col-xs-1"
+         *ngIf="!renderingMajorKey"
+         [ngStyle]="{'background-color':backgroundColors.minor6th}">
+        <h4>VI</h4>
+        <p>{{musicKey.minor6th}}</p>
     </div>
-    <div class="col-xs-1">
-        <div *ngIf="!renderingMajorKey">
-            <h4>VII</h4>
-            <p>{{musicKey.minor7th}}</p>
-        </div>
+
+    <div class="col-xs-1"
+         *ngIf="renderingMajorKey"
+         [ngStyle]="{'background-color':backgroundColors.Major6th}">
+        <h4>vi</h4>
+        <p>{{musicKey.Major6th}}</p>
     </div>
-    <div class="col-xs-1">
-        <div *ngIf="renderingMajorKey">
-            <h4>d</h4>
-            <p>{{musicKey.Major7th}}</p>
-        </div>
+    <div class="col-xs-1"
+         *ngIf="!renderingMajorKey">
+    </div>
+
+    <div class="col-xs-1"
+         *ngIf="renderingMajorKey">
+    </div>
+    <div class="col-xs-1"
+         *ngIf="!renderingMajorKey"
+         [ngStyle]="{'background-color':backgroundColors.minor7th}">
+        <h4>VII</h4>
+        <p>{{musicKey.minor7th}}</p>
+    </div>
+
+    <div class="col-xs-1"
+         *ngIf="renderingMajorKey"
+         [ngStyle]="{'background-color':backgroundColors.Major7th}">
+        <h4>d</h4>
+        <p>{{musicKey.Major7th}}</p>
+    </div>
+    <div class="col-xs-1"
+         *ngIf="!renderingMajorKey">
     </div>
 </div>
-
 
 <div class="row" style="margin-top: 3rem">
     <div class="col-xs-9">
@@ -131,5 +172,13 @@
     <div class="col-xs-2"></div>
     <div class="col-xs-1">
         <input #minorMajorScale type="range" min="1" max="2" value="1" (change)="getminorMajorValue($event)">
+    </div>
+</div>
+
+<div class="row" style="margin-top: 3rem;">
+    <div class="col-xs-4">
+        <button type="button"
+                class="btn btn-primary"
+                (click)="handleClick($event)">Show Chromatic Scale</button>
     </div>
 </div>
