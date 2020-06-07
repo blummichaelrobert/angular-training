@@ -68,8 +68,8 @@
     <div class="col-xs-1"
          [ngStyle]="{'background-color':backgroundColors.Root}">
         <div *ngIf="true">
-            <h4 *ngIf="!renderingMajorKey">i</h4>
-            <h4 *ngIf="renderingMajorKey">I</h4>
+            <h4 *ngIf="!renderingMajorKey">i*</h4>
+            <h4 *ngIf="renderingMajorKey">I*</h4>
             <p>{{musicKey.Root}}</p>
         </div>
     </div>
@@ -79,7 +79,7 @@
     <div class="col-xs-1"
          [ngStyle]="{'background-color':backgroundColors.Major2nd}">
         <h4 *ngIf="!renderingMajorKey">d</h4>
-        <h4 *ngIf="renderingMajorKey">ii</h4>
+        <h4 *ngIf="renderingMajorKey">ii*</h4>
         <p>{{musicKey.Major2nd}}</p>
     </div>
 
@@ -89,14 +89,14 @@
     <div class="col-xs-1"
          *ngIf="!renderingMajorKey"
          [ngStyle]="{'background-color':backgroundColors.minor3rd}">
-        <h4>III</h4>
+        <h4>III*</h4>
         <p>{{musicKey.minor3rd}}</p>
     </div>
 
     <div class="col-xs-1"
          *ngIf="renderingMajorKey"
          [ngStyle]="{'background-color':backgroundColors.Major3rd}">
-        <h4>iii</h4>
+        <h4>iii*</h4>
         <p>{{musicKey.Major3rd}}</p>
     </div>
 
@@ -107,7 +107,7 @@
     <div class="col-xs-1"
          [ngStyle]="{'background-color':backgroundColors.Perfect4th}">
         <div *ngIf="true">
-            <h4 *ngIf="!renderingMajorKey">iv</h4>
+            <h4 *ngIf="!renderingMajorKey">iv*</h4>
             <h4 *ngIf="renderingMajorKey">IV</h4>
             <p>{{musicKey.Perfect4th}}</p>
         </div>
@@ -118,8 +118,8 @@
     <div class="col-xs-1"
          [ngStyle]="{'background-color':backgroundColors.Perfect5th}">
         <div *ngIf="true">
-            <h4 *ngIf="!renderingMajorKey">v</h4>
-            <h4 *ngIf="renderingMajorKey">V</h4>
+            <h4 *ngIf="!renderingMajorKey">v*</h4>
+            <h4 *ngIf="renderingMajorKey">V*</h4>
             <p>{{musicKey.Perfect5th}}</p>
         </div>
     </div>
@@ -137,7 +137,7 @@
     <div class="col-xs-1"
          *ngIf="renderingMajorKey"
          [ngStyle]="{'background-color':backgroundColors.Major6th}">
-        <h4>vi</h4>
+        <h4>vi*</h4>
         <p>{{musicKey.Major6th}}</p>
     </div>
     <div class="col-xs-1"
@@ -150,7 +150,7 @@
     <div class="col-xs-1"
          *ngIf="!renderingMajorKey"
          [ngStyle]="{'background-color':backgroundColors.minor7th}">
-        <h4>VII</h4>
+        <h4>VII*</h4>
         <p>{{musicKey.minor7th}}</p>
     </div>
 
@@ -180,5 +180,196 @@
         <button type="button"
                 class="btn btn-primary"
                 (click)="handleClick($event)">Show Chromatic Scale</button>
+    </div>
+</div>
+
+<div class="row" style=" margin-top: 3rem; border: solid; border-width:1px;">
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1">
+        <p>x</p>
+    </div>
+</div>
+<div class="row" style=" border: solid; border-width:1px; border-top-color: white">
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1">
+        <p>x</p>
+    </div>
+</div>
+<div class="row" style=" border: solid; border-width:1px; border-top-color: white">
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1">
+        <p>x</p>
+    </div>
+</div>
+<div class="row" style=" border: solid; border-width:1px; border-top-color: white">
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1">
+        <p>x</p>
+    </div>
+</div>
+<div class="row" style=" border: solid; border-width:1px; border-top-color: white">
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1" style="border-right:solid; border-right-width: 1px;">
+        <p>x</p>
+    </div>
+    <div class="col-xs-1">
+        <p>x</p>
     </div>
 </div>
